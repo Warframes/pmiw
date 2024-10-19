@@ -1,17 +1,20 @@
 let pantallas = [24];
 let estado = 0;
 let cancionBase;
+let font;
 
 function preload() {
   for (let i = 0; i < 24; i++) {
     pantallas[i] = loadImage('data/' + i + '.png');
   }
-  soundFormats('mp3');
+  font = loadFont('data/angrybirds-regular.ttf')
+    soundFormats('mp3');
   cancionBase = loadSound('data/CancionBase.mp3')
 }
 
 function setup() {
   createCanvas(640, 480);
+  textFont(font);
 }
 
 
@@ -19,22 +22,28 @@ function draw() {
   background(0);
   console.log(mouseX, mouseY, estado);
   image(pantallas[estado], 0, 0, width, height);
-  if(estado == 14 || estado == 19 || estado == 24) {
+  if (estado == 14 || estado == 19 || estado == 24) {
     fill(255, 0, 0);
-    rect(270, 400, 100, 50);
+    rect(270, 400, 100, 50, 50);
     fill(0);
     textAlign(CENTER);
     textSize(20);
     text('reiniciar', width/2, 430);
   }
-   if (estado == 1 ||  estado == 2 ||  estado == 3
+  if (estado == 1 ||  estado == 2 ||  estado == 3
     ||  estado == 6 ||  estado == 7 ||  estado == 8 ||  estado == 10
     ||  estado == 11 ||  estado == 12 ||  estado == 13 ||  estado == 15
     ||  estado == 16 ||  estado == 18||  estado == 20||  estado == 23) {
+
     fill(255, 0, 0);
-    rect(290, 400, 100, 50);
+    rect(270, 400, 100, 50, 50);
+    push();
+    fill(255);
+    textSize(17);
+    text('Siguiente', 290, 430);
+    pop();
   }
-  botonesDeAvance();
+  botonesDecisivos();
 }
 function mousePressed() {
 
