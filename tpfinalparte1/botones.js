@@ -1,4 +1,4 @@
-function botonesDeAvance() {
+function botonesDecisivos() {
     if (estado == 4 ||  estado == 9 ||  estado == 17 || estado ==21) {
     fill(255, 0, 0);
     rect(110, 335, 100, 50, 50);
