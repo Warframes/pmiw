@@ -11,7 +11,6 @@ function clickBoton() {
   }
 }
 function creditos () {
-  //image(pantallas[23], 0, 0, width, height);
   fill(255);
   textAlign(CENTER);
   textSize(30);
