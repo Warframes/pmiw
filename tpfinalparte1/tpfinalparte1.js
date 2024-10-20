@@ -1,3 +1,6 @@
+// Guillermo Franco 91308/0
+// Julieta Pratti 83917/3
+//comsión 5
 let pantallas = [24];
 let estado = 0;
 let cancionBase;
