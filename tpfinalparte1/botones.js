@@ -14,7 +14,7 @@ function botonesDecisivos() {
   }
 }
 function botonReinicio() {
-  if (estado == 23) {
+  if (estado == 22 ||estado == 23) {
     fill(255, 0, 0);
     rect(270, 400, 100, 50, 50);
     fill(255);
@@ -27,7 +27,7 @@ function botonSiguiente() {
   if (estado == 1 ||  estado == 2 ||  estado == 3 || estado == 5
     ||  estado == 6 ||  estado == 7 ||  estado == 8 ||  estado == 10
     ||  estado == 11 ||  estado == 12 ||  estado == 13||  estado == 14
-    ||  estado == 15 ||  estado == 18 ||  estado == 20||  estado == 21) {
+    ||  estado == 15 || estado == 17 ||  estado == 18 ||  estado == 20||  estado == 21) {
     fill(255, 0, 0);
     rect(270, 400, 100, 50, 50);
     push();
@@ -50,8 +50,3 @@ function botonSiguiente() {
    
   }
 }
-
-
-
-
-
