@@ -1,7 +1,7 @@
 function textosDePantallas() {
   if (estado < misTextos.length) {
     fill(255);
-    textSize(15);
+    textSize(20);
     text(misTextos[estado], 50, 180);
   }
 }
@@ -11,8 +11,8 @@ function clickBoton() {
   }
 }
 function creditos () {
-  image(pantallas[23], 0, 0, width, height);
-  fill(255, 0, 0);
+  //image(pantallas[23], 0, 0, width, height);
+  fill(255);
   textAlign(CENTER);
   textSize(30);
   text ("Créditos", width/2, 220);
