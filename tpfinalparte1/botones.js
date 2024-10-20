@@ -14,21 +14,20 @@ function botonesDecisivos() {
   }
 }
 function botonReinicio() {
-  if (estado == 22) {
+  if (estado == 23) {
     fill(255, 0, 0);
     rect(270, 400, 100, 50, 50);
-    fill(0);
-    //textAlign(CENTER);
+    fill(255);
     textSize(20);
-    text('reiniciar', width/2, 430);
+    text('reiniciar', 320, 430);
   }
 }
 
 function botonSiguiente() {
   if (estado == 1 ||  estado == 2 ||  estado == 3 || estado == 5
     ||  estado == 6 ||  estado == 7 ||  estado == 8 ||  estado == 10
-    ||  estado == 11 ||  estado == 12 ||  estado == 14
-    ||  estado == 15 ||  estado == 18||  estado == 21||  estado == 22) {
+    ||  estado == 11 ||  estado == 12 ||  estado == 13||  estado == 14
+    ||  estado == 15 ||  estado == 18 ||  estado == 20||  estado == 21) {
     fill(255, 0, 0);
     rect(270, 400, 100, 50, 50);
     push();
@@ -40,12 +39,19 @@ function botonSiguiente() {
   if(estado == 0){
   fill(255, 0, 0);
     noStroke();
+    rect(160, 400, 100, 50, 50);
     rect(360, 400, 100, 50, 50);
     push();
     fill(255);
     textSize(17);
+    text('Créditos', 180, 430);
     text('Comenzar', 375, 430);
     pop();
    
   }
 }
+
+
+
+
+
