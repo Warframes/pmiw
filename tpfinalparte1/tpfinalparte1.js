@@ -30,7 +30,6 @@ function draw() {
   botonReinicio();
   botonSiguiente();
   botonesDecisivos();
-
   if (estado == 23) {
     creditos();
   }
@@ -41,14 +40,27 @@ function mousePressed() {
       estado++;
     } else if (mouseX > 160 && mouseX < 260 && mouseY > 400 && mouseY < 450) {
       estado= 23;
-    } else if (mouseX > 270 && mouseX < 370 && mouseY > 400 && mouseY < 450) {
-      estado = 0
+    }
+  }
+  if (mouseX > 270 && mouseX < 370 && mouseY > 400 && mouseY < 450) {
+    if (estado ==22) {
+      estado = 0;
     }
   }
   if ( estado == 1 ||  estado == 2 ||  estado == 3
     ||  estado == 6 ||  estado == 7 ||  estado == 8 ||  estado == 10
-    ||  estado == 11 ||  estado == 12 || estado == 14 ||  estado == 15
-    ||  estado == 18 || estado == 20  || estado == 21|| estado == 22) {
+    ||  estado == 11 ||  estado == 12||  estado == 13 || estado == 14 ||  estado == 15
+    || estado == 17 ||  estado == 18 || estado == 20  || estado == 21|| estado == 22) {
+    if (mouseX > 270 && mouseX < 370 && mouseY > 400 && mouseY < 450) {
+      if (estado==13) {
+        estado=22;
+      }
+    }
+    if (mouseX > 270 && mouseX < 370 && mouseY > 400 && mouseY < 450) {
+      if (estado==17) {
+        estado=22;
+      }
+    }
     clickBoton();
   } else if (estado == 4 ||  estado == 9 ||  estado == 16 || estado == 19) {
     if (mouseX>110&&mouseX<210&&mouseY>335&&mouseY<385) {
