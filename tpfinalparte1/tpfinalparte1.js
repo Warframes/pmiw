@@ -1,4 +1,4 @@
-let pantallas = [23];
+let pantallas = [24];
 let estado = 0;
 let cancionBase;
 let font;
@@ -6,7 +6,7 @@ let misTextos;
 
 
 function preload() {
-  for (let i = 0; i < 23; i++) {
+  for (let i = 0; i < 24; i++) {
     pantallas[i] = loadImage('data/' + i + '.png');
   }
   font = loadFont('data/angrybirds-regular.ttf')
@@ -30,6 +30,7 @@ function draw() {
   botonReinicio();
   botonSiguiente();
   botonesDecisivos();
+
   if (estado == 23) {
     creditos();
   }
@@ -38,6 +39,10 @@ function mousePressed() {
   if (estado == 0) {
     if (mouseX > 360 && mouseX < 460 && mouseY > 400 && mouseY < 450) {
       estado++;
+    } else if (mouseX > 160 && mouseX < 260 && mouseY > 400 && mouseY < 450) {
+      estado= 23;
+    } else if (mouseX > 270 && mouseX < 370 && mouseY > 400 && mouseY < 450) {
+      estado = 0
     }
   }
   if ( estado == 1 ||  estado == 2 ||  estado == 3
@@ -60,8 +65,6 @@ function mousePressed() {
     } else if (mouseX>430&&mouseX<530&&mouseY>335&&mouseY<385) {
       if (estado==16) {
         estado = 18;
-      } else if  (estado == 19) {
-        estado = 22;
       } else {
         estado++;
       }
@@ -69,11 +72,9 @@ function mousePressed() {
   } else if (estado == 5) {
     estado = 7;
   }
- 
-
-  if (estado == 23) {
-    if (mouseX>290&&mouseX<390&&mouseY>400&&mouseY<450) {
-      estado = 0;
+  if (estado >= 20) {
+    if (mouseX > 270 && mouseX < 370 && mouseY > 400 && mouseY < 450) {
+      estado = 22;
     }
   }
 }
