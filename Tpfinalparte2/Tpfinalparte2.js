@@ -18,7 +18,7 @@ function preload() {
 
 function setup() {
   createCanvas(640, 480);
-  miJuego = new Juego(10);
+  miJuego = new Juego(5);
 }
 
 

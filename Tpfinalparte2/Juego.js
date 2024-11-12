@@ -4,7 +4,6 @@ class Juego {
     this.crearEnemigos();
     this.crearJugador();
     this.pantalla = new Pantalla();  
-    
   }
 
   dibujar() {
@@ -13,8 +12,7 @@ class Juego {
     for (let i = 0; i < this.cantidadDeEnemigos; i++) {
       this.enemigos[i].dibujar();
     }
-     this.jugador.dibujar();
-     this.colisionJugadorConEnemigo();
+     this.jugador.dibujar();    
   }
    
   crearJugador() {
@@ -30,18 +28,5 @@ class Juego {
       this.enemigos[i] = new Enemigo(i*80,10);
     }
   }
- colisionJugadorConEnemigo(){
-    if(this.jugador.haDisparado()){
-      if(dist(
-        this.Jugador.Canon.Bala.posX,
-        this.Jugador.Canon.Bala.posY,
-        this.Enemigo.posX,
-        this.Enemigo.posY) < 10){
-        this.Enemigo.matar();  
-      }
-    }
-  }
-    haDisparado(){
-    return this.Canon.balaDisparada;
-  }
+ 
 }

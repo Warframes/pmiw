@@ -5,7 +5,7 @@ class Jugador {
     this.posY = posY;
     this.alto = 40;
     this.ancho = 80;
-    this.canon = new Canon(this.posX, this.posY);
+     this.canon = new Canon(this.posX, this.posY);
   }
   dibujar() {
     imageMode(CENTER);
@@ -37,12 +37,12 @@ class Jugador {
   moverAbajo() {
     this.posY = this.posY += 1.5;
   }
-  
   disparo(){
   if(keyCode === ENTER){
       this.balaDisparada = true;
     }
   }
+
 
   mover() {
     if (keyCode === RIGHT_ARROW) {

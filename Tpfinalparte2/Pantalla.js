@@ -5,9 +5,4 @@ class Pantalla {
 
   dibujar() { 
   }
- 
-  teclaPresionada(){
-     //this.canon.teclaPresionada();
-    //this.pantalla.teclaPresionada();
-  }
 }
