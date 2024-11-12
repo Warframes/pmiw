@@ -7,7 +7,7 @@ class Pantalla {
   }
  
   teclaPresionada(){
-     this.canon.teclaPresionada();
-    this.pantalla.teclaPresionada();
+     //this.canon.teclaPresionada();
+    //this.pantalla.teclaPresionada();
   }
 }

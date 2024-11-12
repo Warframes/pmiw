@@ -19,7 +19,6 @@ function preload() {
 function setup() {
   createCanvas(640, 480);
   miJuego = new Juego(10);
-  this.balaDisparada = false;
 }
 
 
@@ -28,8 +27,5 @@ function draw() {
   if (keyIsPressed) {
     miJuego.teclaPresionada();
   }
-   if(this.balaDisparada == true){
-      this.bala.posY -= 5;
-    }  
   print(this.balaDisparada);
 }

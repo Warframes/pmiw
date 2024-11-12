@@ -11,9 +11,12 @@ class Canon {
   fill(255);
   rectMode(CENTER);
     rect(this.posX,this.posY, 10, 10);
-    this.bala.posY = this.posY;
+    if(this.balaDisparada == true){
+      this.bala.posY -= 5;
+    }else{
+      this.bala.posY = this.posY;
       this.bala.posX = this.posX;
-   
+    }    
     this.bala.dibujar();
   }
    teclaPresionada(){
