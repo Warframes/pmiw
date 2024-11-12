@@ -1,14 +1,15 @@
 class Jugador {
-  constructor() {
+  constructor(posX,posY) {
     this.vida = 1;
-    this.posX = 320;
-    this.posY = 240;
+    this.posX = posX;
+    this.posY = posY;
     this.alto = 40;
     this.ancho = 80;
-    this.canon = new Canon();
+    this.canon = new Canon(this.posX, this.posY);
   }
   dibujar() {
     imageMode(CENTER);
+    //image(imagenesJugador[0], this.posX, this.posY, this.ancho-40, this.alto+40);
     if (keyCode === RIGHT_ARROW) {     
       image(imagenesJugador[3], this.posX, this.posY,  this.ancho, this.alto);
     } else if (keyCode === LEFT_ARROW) {      
@@ -18,7 +19,7 @@ class Jugador {
     } else if (keyCode === DOWN_ARROW) {     
       image(imagenesJugador[2], this.posX, this.posY, this.ancho-40, this.alto+40);
     }
-    //image(imagenes[0], this.posX, this.posY, this.ancho-40, this.alto+40);
+   this.canon.dibujar();
   }
 
   moverDerecha() {
@@ -37,11 +38,11 @@ class Jugador {
     this.posY = this.posY += 1.5;
   }
   
- moverDiagonalIzquierdaArriba() {
-    this.posX = this.posX -= 1.5;
-    this.posY = this.posY -= 1.5;
+  disparo(){
+  if(keyCode === ENTER){
+      this.balaDisparada = true;
+    }
   }
-
 
   mover() {
     if (keyCode === RIGHT_ARROW) {
@@ -52,11 +53,17 @@ class Jugador {
       this.moverArriba();     
     } else if (keyCode === DOWN_ARROW) {
       this.moverAbajo();    
-    }else if (keyCode === 'W') {
-    moverDiagonalIzquierdaArriba();
     }
+    this.canon.posX = this.posX
+    this.canon.posY = this.posY
+    
+  }
+  haDisparado(){
+    return this.canon.balaDisparada;
   }
   teclaPresionada() {
     this.mover();
+    this.disparo();
   }
+  
 }

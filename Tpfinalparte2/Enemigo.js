@@ -1,20 +1,20 @@
 class Enemigo {
-  constructor() {
-    this.vidas = 2;
-    this.posX = 100;
-    this.posY = 100;
+  constructor(posX,posY) {
+    this.vidas = 1;
+    this.posX = posX;
+    this.posY = posY;
     this.ancho = 180;
     this.alto = 200;
   }
 
-  dibujar() {
+  dibujar() {       
     if (this.estaVivo) {
       image(imagenesEnemigos[0], this.posX, this.posY, this.ancho, this.alto);
     }
   }
-  dividido() {
+  /*dividido() {
     this.estaVivo = 1;
-  }
+  }*/
   matar() {
     this.estaVivo = 0;
   }

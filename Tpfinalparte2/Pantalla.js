@@ -1,25 +1,13 @@
 class Pantalla {
-  constructor() {
-    this.jugador = new Jugador();  
-    this.crearEnemigos();
+  constructor() { 
+    
   }
 
-  dibujar() {
-    imageMode(CENTER);
-    image(imagenesFondos[0],width/2, height/2,width, height);
-    this.jugador.dibujar();
-    for(let i = 0; i<10;i++){
-    this.enemigos[i].dibujar();
-    }
+  dibujar() { 
   }
-  crearEnemigos(){
-  this.enemigos = [];
-    for(let i = 0; i<10;i++){
-    this.enemigos[i] = new Enemigo();
-    }
-  }
-  
-    teclaPresionada(){
-    this.jugador.teclaPresionada();
+ 
+  teclaPresionada(){
+     this.canon.teclaPresionada();
+    this.pantalla.teclaPresionada();
   }
 }

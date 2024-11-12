@@ -2,13 +2,13 @@ let miJuego;
 let imagenesJugador = [];
 let imagenesFondos = [];
 let imagenesEnemigos = [];
-let enemigos = [];
+
 
 function preload() {
   for (let i=0; i<4; i++) {
     imagenesJugador[i]= loadImage('data/' + i + '.png');
   }
-  for (let i=0; i<6; i++) {
+  for (let i=0; i<5; i++) {
     imagenesEnemigos[i]= loadImage('data/enemigos/' + i + '.png');
   }
   for (let i=0; i<2; i++){
@@ -18,7 +18,8 @@ function preload() {
 
 function setup() {
   createCanvas(640, 480);
-  miJuego = new Juego();
+  miJuego = new Juego(10);
+  this.balaDisparada = false;
 }
 
 
@@ -27,4 +28,8 @@ function draw() {
   if (keyIsPressed) {
     miJuego.teclaPresionada();
   }
+   if(this.balaDisparada == true){
+      this.bala.posY -= 5;
+    }  
+  print(this.balaDisparada);
 }
