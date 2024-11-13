@@ -1,32 +1,55 @@
 class Juego {
-  constructor(cantidadDeEnemigos) {
+  constructor(cantidadDeEnemigos){
     this.cantidadDeEnemigos = cantidadDeEnemigos;
     this.crearEnemigos();
     this.crearJugador();
-    this.pantalla = new Pantalla();  
   }
 
-  dibujar() {
-    this.pantalla.dibujar();
-    image(imagenesFondos[0], width/2, height/2, width, height);   
+  dibujar(){
+    image(imagenesFondos[0], width / 2, height / 2, width, height);
+    
     for (let i = 0; i < this.cantidadDeEnemigos; i++) {
+      this.enemigos[i].mover(this.jugador);
       this.enemigos[i].dibujar();
     }
-     this.jugador.dibujar();    
+    
+    this.jugador.dibujar();  
+    this.colisionJugadorConEnemigo();  
   }
-   
-  crearJugador() {
+
+  crearJugador(){
     this.jugador = new Jugador(width/2, height/2);
   }
-  teclaPresionada() {
-    this.jugador.teclaPresionada();
+
+  teclaPresionada(){
+    this.jugador.mover();
+    this.jugador.canon.disparo();
   }
-  
-   crearEnemigos() {
+
+  crearEnemigos(){
     this.enemigos = [];
-    for (let i = 0; i < this.cantidadDeEnemigos; i++) {
-      this.enemigos[i] = new Enemigo(i*80,10);
+    for(let i = 0; i < this.cantidadDeEnemigos; i++){
+      this.enemigos[i] = new Enemigo(i * 80 + 50, 0); 
     }
   }
- 
+
+  colisionJugadorConEnemigo(){
+  for (let i = 0; i < this.cantidadDeEnemigos; i++) {
+    let enemigo = this.enemigos[i];
+    if (enemigo.estaVivo()) {
+      for (let j = this.jugador.canon.cantBalas.length - 1; j >= 0; j--) {
+        let bala = this.jugador.canon.cantBalas[j];
+        let cajaDeColision = enemigo.obtenerCajaDeColision();
+        if (bala.posX > cajaDeColision.x && bala.posX < cajaDeColision.x + cajaDeColision.width &&
+          bala.posY > cajaDeColision.y && 
+          bala.posY < cajaDeColision.y + cajaDeColision.height){
+          enemigo.matar(); 
+          this.jugador.canon.cantBalas.splice(j, 1);  
+          break;
+        }
+      }
+    }
+  }
+}
+
 }

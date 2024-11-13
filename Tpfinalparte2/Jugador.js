@@ -1,69 +1,37 @@
-class Jugador {
-  constructor(posX,posY) {
-    this.vida = 1;
+class Jugador{
+  constructor(posX, posY){
     this.posX = posX;
     this.posY = posY;
     this.alto = 40;
     this.ancho = 80;
-     this.canon = new Canon(this.posX, this.posY);
+    this.canon = new Canon(this.posX, this.posY);
   }
-  dibujar() {
+
+  dibujar(){
     imageMode(CENTER);
-    //image(imagenesJugador[0], this.posX, this.posY, this.ancho-40, this.alto+40);
-    if (keyCode === RIGHT_ARROW) {     
-      image(imagenesJugador[3], this.posX, this.posY,  this.ancho, this.alto);
-    } else if (keyCode === LEFT_ARROW) {      
-      image(imagenesJugador[1], this.posX, this.posY,  this.ancho, this.alto);
-    } else if (keyCode === UP_ARROW) {    
+    if (keyCode === RIGHT_ARROW){
+      image(imagenesJugador[3], this.posX, this.posY, this.ancho, this.alto);
+    } else if (keyCode === LEFT_ARROW){
+      image(imagenesJugador[1], this.posX, this.posY, this.ancho, this.alto);
+    } else if (keyCode === UP_ARROW){
       image(imagenesJugador[0], this.posX, this.posY, this.ancho-40, this.alto+40);
-    } else if (keyCode === DOWN_ARROW) {     
+    } else if (keyCode === DOWN_ARROW){
       image(imagenesJugador[2], this.posX, this.posY, this.ancho-40, this.alto+40);
     }
-   this.canon.dibujar();
+    this.canon.dibujar();
   }
-
-  moverDerecha() {
-    this.posX = this.posX += 1.5;
-  }
-
-  moverIzquierda() {
-    this.posX = this.posX -= 1.5;
-  }
-  
-  moverArriba() {
-    this.posY = this.posY -= 1.5;
-  }
-
-  moverAbajo() {
-    this.posY = this.posY += 1.5;
-  }
-  disparo(){
-  if(keyCode === ENTER){
-      this.balaDisparada = true;
-    }
-  }
-
 
   mover() {
-    if (keyCode === RIGHT_ARROW) {
-      this.moverDerecha();    
-    } else if (keyCode === LEFT_ARROW) {
-      this.moverIzquierda();     
-    } else if (keyCode === UP_ARROW) {
-      this.moverArriba();     
-    } else if (keyCode === DOWN_ARROW) {
-      this.moverAbajo();    
+    if (keyIsDown(RIGHT_ARROW)){
+      this.posX += 2; 
+    } else if (keyIsDown(LEFT_ARROW)){
+      this.posX -= 2;
+    } else if (keyIsDown(UP_ARROW)){
+      this.posY -= 2;
+    } else if (keyIsDown(DOWN_ARROW)){
+      this.posY += 2;
     }
-    this.canon.posX = this.posX
-    this.canon.posY = this.posY
-    
+    this.canon.posX = this.posX;
+    this.canon.posY = this.posY;
   }
-  haDisparado(){
-    return this.canon.balaDisparada;
-  }
-  teclaPresionada() {
-    this.mover();
-    this.disparo();
-  }
-  
 }
