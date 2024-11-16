@@ -1,23 +1,29 @@
 let miJuego;
-let imagenJugador, imagenFondo, imagenEnemigo, imagenInicio;
+let imagenJugador, imagenFondo, imagenEnemigo, imagenInicio, cancionBase;
+
 function preload() {
+  cancionBase = loadSound('data/CancionBase.mp3');
   imagenJugador = loadImage('data/jugador.png');
-  imagenFondo =loadImage('data/fondo.png') ;
+  imagenFondo = loadImage('data/fondo.png');
   imagenEnemigo = loadImage('data/enemigo.png');
   imagenInicio = loadImage('data/inicio.png');
 }
+
 function setup() {
   createCanvas(640, 480);
   miJuego = new ProgramaDeFlujoGeneral();
   imageMode(CENTER);
 }
+
 function draw() {
-  miJuego.dibujar();
-  //miJuego.botonClickeado();
+  miJuego.dibujar(); 
   if (keyIsPressed) {
-    miJuego.juego.teclaPresionada();
+    if (miJuego.juego) {  // Verificamos que el juego está inicializado antes de llamar a teclaPresionada()
+      miJuego.juego.teclaPresionada(); // Solo llamamos si miJuego.juego no es null
+    }
   }
 }
+
 function mousePressed() {
   if (miJuego.pantallaActiva === 0) {
     if (miJuego.pantallaDeInicio.botonInicio.botonPresionado()) {

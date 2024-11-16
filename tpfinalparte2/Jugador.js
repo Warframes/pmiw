@@ -1,5 +1,5 @@
-class Jugador{
-  constructor(posX, posY){
+class Jugador {
+  constructor(posX, posY) {
     this.posX = posX;
     this.posY = posY;
     this.alto = 40;
@@ -7,20 +7,20 @@ class Jugador{
     this.canon = new Canon(this.posX, this.posY);
   }
 
-  dibujar(){
+  dibujar() {
     imageMode(CENTER);
     image(imagenJugador, this.posX, this.posY, this.ancho, this.alto);
     this.canon.dibujar();
   }
 
   mover() {
-    if (keyIsDown(RIGHT_ARROW)){
-      this.posX += 2; 
-    } else if (keyIsDown(LEFT_ARROW)){
+    if (keyIsDown(RIGHT_ARROW)) {
+      this.posX += 2;
+    } else if (keyIsDown(LEFT_ARROW)) {
       this.posX -= 2;
-    } else if (keyIsDown(UP_ARROW)){
+    } else if (keyIsDown(UP_ARROW)) {
       this.posY -= 2;
-    } else if (keyIsDown(DOWN_ARROW)){
+    } else if (keyIsDown(DOWN_ARROW)) {
       this.posY += 2;
     }
     this.canon.posX = this.posX;

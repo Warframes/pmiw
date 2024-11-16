@@ -6,8 +6,8 @@ class PantallaDeInicio {
   }
 
   dibujar() {
-    image(imagenInicio, width / 2, height / 2, width, height); 
-    this.botonInicio.dibujar(); 
+    image(imagenInicio, width / 2, height / 2, width, height);
+    this.botonInicio.dibujar();
     this.botonInstrucciones.dibujar();
     this.botonCreditos.dibujar();
   }
