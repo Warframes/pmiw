@@ -9,10 +9,10 @@ class Boton {
   }
 
   dibujar() {
-    
-    fill(200, 200, 255);
+    noStroke();
+    fill(230, 200, 30);
     rect(this.posX, this.posY, this.ancho, this.alto, 10);
-    fill(0);
+    fill(255);
     textAlign(CENTER, CENTER);
     textSize(16);
     text(this.texto, this.posX + this.ancho / 2, this.posY + this.alto / 2);

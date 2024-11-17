@@ -22,8 +22,7 @@ class Enemigo {
     if (this.divisiones < 1) {
       let nuevoEnemigo1 = new Enemigo(this.posX + random(-50, 50), this.posY + random(-50, 50));
       let nuevoEnemigo2 = new Enemigo(this.posX + random(-50, 50), this.posY + random(-50, 50));
-      nuevoEnemigo1.divisiones = this.divisiones + 1;
-      nuevoEnemigo2.divisiones = this.divisiones + 1;
+      nuevoEnemigo1.divisiones = nuevoEnemigo2.divisiones = this.divisiones + 1;
       this.divisiones = 1;
       nuevoEnemigo1.ancho = this.ancho / 2;
       nuevoEnemigo1.alto = this.alto / 2;

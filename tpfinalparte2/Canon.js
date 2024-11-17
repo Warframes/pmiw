@@ -3,7 +3,7 @@ class Canon{
     this.posX = posX;
     this.posY = posY;
     this.cantBalas = [];
-    this.balaDisparada = false;
+   // this.balaDisparada = false;
   }
 
   dibujar(){
@@ -23,7 +23,7 @@ class Canon{
    disparo(){  
     if (keyIsDown(ENTER) && this.cantBalas.length === 0) {
       this.cantBalas.push(new Bala(this.posX, this.posY));
-      this.balaDisparada = true;
+     // this.balaDisparada = true;
     }
   }
 }

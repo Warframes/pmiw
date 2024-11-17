@@ -7,22 +7,22 @@ class ProgramaDeFlujoGeneral {
     this.pantallaActiva = 0;
   }
 
-  cambioDePantalla(nombreDePantalla) {
-    if (nombreDePantalla === "inicio") {
-      this.pantallaActiva = 0;
-    } else if (nombreDePantalla === "instrucciones") {
-      this.pantallaActiva = 1;
-    } else if (nombreDePantalla === "juego") {
-      this.pantallaActiva = 2;
-      if (!this.juego) {
-        this.juego = new Juego(5);  
-      } else {
-        this.juego.reiniciar();  
-      }
-    } else if (nombreDePantalla === "creditos") {
-      this.pantallaActiva = 3;
+cambioDePantalla(nombreDePantalla) {
+  if (nombreDePantalla === "inicio") {
+    this.pantallaActiva = 0;
+     this.juego = null;
+  } else if (nombreDePantalla === "instrucciones") {
+    this.pantallaActiva = 1;
+  } else if (nombreDePantalla === "juego") {
+    if (this.pantallaActiva !== 2) { 
+      this.juego = this.juego || new Juego(5); 
+      this.juego.reiniciar();
     }
+    this.pantallaActiva = 2;
+  } else if (nombreDePantalla === "creditos") {
+    this.pantallaActiva = 3;
   }
+}
 
   dibujar() {
     if (this.pantallaActiva === 0) {

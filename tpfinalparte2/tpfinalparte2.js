@@ -1,3 +1,8 @@
+// Guillermo Franco 91308/0
+// Julieta Pratti 83917/3
+//comsión 5
+// https://youtu.be/CxcoslFMOPA
+
 let miJuego;
 let imagenJugador, imagenFondo, imagenEnemigo, imagenInicio, cancionBase;
 
@@ -16,10 +21,12 @@ function setup() {
 }
 
 function draw() {
+  //imageMode(CENTER);
+  rectMode(CORNER);
   miJuego.dibujar(); 
   if (keyIsPressed) {
-    if (miJuego.juego) {  // Verificamos que el juego está inicializado antes de llamar a teclaPresionada()
-      miJuego.juego.teclaPresionada(); // Solo llamamos si miJuego.juego no es null
+    if (miJuego.juego) {  
+      miJuego.juego.teclaPresionada(); 
     }
   }
 }

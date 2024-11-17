@@ -4,23 +4,42 @@ class Juego {
     this.crearEnemigos();
     this.crearJugador();
     this.musicaReproducida = false;
+    this.estadoFinal = "";
+    this.mostrarPantallaFinal = false;
+  }
+  textoGanaroPerder() {
+    if (this.vidas <= 0) {
+      this.estadoFinal = "Perdiste!";
+    } else {
+      this.estadoFinal = "Ganaste!";
+    }
+    miJuego.cambioDePantalla("creditos");
   }
 
   dibujar() {
     image(imagenFondo, width / 2, height / 2, width, height);
+
     for (let i = 0; i < this.enemigos.length; i++) {
       this.enemigos[i].mover(this.jugador);
       this.enemigos[i].dibujar();
     }
     this.jugador.dibujar();
+    this.jugador.mostrarVidas();
     this.colisionDeBalaConEnemigo();
+    this.verificarColisionJugadorConEnemigo();
+    if (this.jugador.vidas <= 0) {
+      this.estadoFinal ="Perdiste!";
+    }
     if (!this.verificarEnemigosRestantes()) {
+     this.estadoFinal ="Ganaste!";
+    }
+    if (this.estadoFinal !== "") {
       miJuego.cambioDePantalla("creditos");
     }
   }
 
   crearJugador() {
-    this.jugador = new Jugador(width / 2, height / 2);
+    this.jugador = new Jugador(width/2, height/2);
   }
 
   teclaPresionada() {
@@ -60,7 +79,23 @@ class Juego {
     }
     return false;
   }
-
+  verificarColisionJugadorConEnemigo() {
+    for (let i = 0; i < this.enemigos.length; i++) {
+      let enemigo = this.enemigos[i];
+      if (enemigo.estaVivo()) {
+        let cajaJugador = this.jugador.obtenerCajaDeColision();
+        let cajaEnemigo = enemigo.obtenerCajaDeColision();
+        if (cajaJugador.x < cajaEnemigo.x + cajaEnemigo.width &&
+          cajaJugador.x + cajaJugador.width > cajaEnemigo.x &&
+          cajaJugador.y < cajaEnemigo.y + cajaEnemigo.height &&
+          cajaJugador.y + cajaJugador.height > cajaEnemigo.y) {
+          this.jugador.perderVida();
+          enemigo.matar();
+          break;
+        }
+      }
+    }
+  }
   colisionDeBalaConEnemigo() {
     for (let i = 0; i < this.enemigos.length; i++) {
       let enemigo = this.enemigos[i];
@@ -73,7 +108,7 @@ class Juego {
             bala.posX < cajaDeColision.x + cajaDeColision.width &&
             bala.posY > cajaDeColision.y &&
             bala.posY < cajaDeColision.y + cajaDeColision.height
-          ) {
+            ) {
             enemigo.matar();
             let enemigosDivididos = enemigo.dividir();
             if (enemigosDivididos.length > 0) {
@@ -92,5 +127,7 @@ class Juego {
     this.crearJugador();
     this.musicaReproducida = false;
     cancionBase.stop();
+    this.estadoFinal = "";
+    this.mostrarPantallaFinal = false;
   }
 }
