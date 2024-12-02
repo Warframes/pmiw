@@ -10,40 +10,41 @@ class Juego {
   }
 
   dibujar() {
-    if (!this.juegoIniciado){ 
-      return;
+  if (!this.juegoIniciado) { 
+    return; 
+  }  
+  image(imagenFondo, width / 2, height / 2, width, height);
+  for (let i = 0; i < this.enemigos.length; i++) {
+    this.enemigos[i].mover(this.jugador);
+    this.enemigos[i].dibujar();
+  }
+  this.jugador.dibujar();
+  this.jugador.mostrarVidas();
+  this.colisionDeBalaConEnemigo();
+  this.verificarColisionJugadorConEnemigo();
+  if (this.jugador.vidas <= 0 && !this.estadoFinal) {
+    this.estadoFinal = "Perdiste!";
+    miJuego.actualizarEstadoFinal(this.estadoFinal);
+  }
+  if (this.verificarEnemigosRestantes() === false && !this.estadoFinal) {
+    this.estadoFinal = "Ganaste!";
+    miJuego.actualizarEstadoFinal(this.estadoFinal);
+  }
+}
+
+  iniciarJuego() {
+    this.estadoFinal = "";
+    this.mostrarPantallaFinal = false;
+    if (!this.jugador) {
+      this.crearJugador();
+    } else {
+      this.jugador.reiniciar();
     }
-    image(imagenFondo, width / 2, height / 2, width, height);
-    for (let i = 0; i < this.enemigos.length; i++) {
-      this.enemigos[i].mover(this.jugador);
-      this.enemigos[i].dibujar();
-    }
-    this.jugador.dibujar();
-    this.jugador.mostrarVidas();
-    this.colisionDeBalaConEnemigo();
-    this.verificarColisionJugadorConEnemigo();
-    if (this.jugador.vidas <= 0) {
-      this.estadoFinal = "Perdiste!";
-      miJuego.actualizarEstadoFinal(this.estadoFinal);
-    }
-    if (this.verificarEnemigosRestantes()) {
-      this.estadoFinal = "Ganaste!";
-      miJuego.actualizarEstadoFinal(this.estadoFinal);
-    }
+    this.crearEnemigos();
+    this.mostrarPantallaFinal = false;
   }
 
- iniciarJuego(){
-  this.estadoFinal = "";
-  this.mostrarPantallaFinal = false;
-  if(!this.jugador){
-    this.crearJugador();
- }else{this.jugador.reiniciar();
- }
-  this.crearEnemigos();
-  this.mostrarPantallaFinal = false;
-}
-  
-textoGanaroPerder() {
+  textoGanaroPerder() {
     if (this.jugador.vidas <= 0) {
       this.estadoFinal = "Perdiste!";
     } else {
@@ -69,6 +70,12 @@ textoGanaroPerder() {
         cancionBase.stop();
         this.musicaReproducida = false;
       }
+    }
+  }
+
+  crearJugador() {
+    if (!this.jugador) {
+      this.jugador = new Jugador(width / 2, height - 50);
     }
   }
 
