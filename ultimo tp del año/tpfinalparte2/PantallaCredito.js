@@ -13,11 +13,11 @@ class PantallaCredito{
     fill(0);
     textSize(20);
     textAlign(CENTER);
-    text("Créditos", width/2, 220);
+    text("Créditos", width/2, 180);
     text("Julieta Pratti legajo 83917/3", width/2, height/2+10);
     text("Guillermo Franco legajo 91308/0", width/2, height/2+50 );
     text("Comisión 5 - Trabajo Práctico Final Parte 1", width/2, height/2+90 );
-    text(this.mensajeFinal, width/2, height/2);
+    text(this.mensajeFinal, width/2, 200);
     this.boton.dibujar();
   }
 }

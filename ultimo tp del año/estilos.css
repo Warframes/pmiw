@@ -23,5 +23,18 @@ li {
     display: block;  
     margin-left: auto;  
     margin-right: auto; 
-    width: 50%;         
+    width: 50%;  
+    border: none;        
+}
+
+.modal-body img {
+    max-width: 100%; 
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+
+.modal-body {
+    width: 98%; 
+    overflow: hidden; 
 }

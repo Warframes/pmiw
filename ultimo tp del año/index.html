@@ -1,41 +1,79 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/papercss@1.9.2/dist/paper.min.css"
+    />
     <link rel="stylesheet" href="estilos.css">
-</head>
-<body>
+    <title>Angry Birds</title>
+  </head>
+  <body>
     <header>
         <img src="img/0.png" alt="" class="centrarImagen">
     </header>
     <div>
         <div>
             <ul>
-                <li>Temática</li>
+                <li>Historia</li>
                 <li>Proceso</li>
                 <li>Integrantes</li>
-                <li>Juego</li>
             </ul>
         </div>
         <div>
-            <h3>Temática</h3>
-            <p>Basicamente este juego trata sobre la película de "Angry Birds"</p>
+            <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                    <h4 class="card-title">Historia</h4>               
+                        <p class="card-text">
+                            Angry Birds (2016) es una película de animación basada en el popular videojuego del mismo nombre. La historia sigue a Red, un pájaro con problemas de ira, que vive en una isla donde todos los pájaros son felices y tranquilos. Debido a su temperamento y sus explosivas reacciones, Red es rechazado por la comunidad y tiene que asistir a sesiones de control de ira con el terapeuta.
+                            
+                            Un día, una misteriosa nave de cerditos verdes llega a la isla. Los cerditos, liderados por Leonard, se hacen pasar por amigos de los pájaros, pero en realidad tienen un plan malvado: robar los huevos de los pájaros. Red, junto con sus nuevos amigos, Chuck (un pájaro extremadamente rápido) y Bomb (un pájaro que explota cuando se enfurece), decide enfrentarse a los cerditos para salvar los huevos.
+                            
+                            A lo largo de la película, Red y sus amigos superan sus diferencias y aprenden a trabajar juntos como un equipo para derrotar a los cerditos y salvar su hogar. La película trata sobre la importancia de la amistad, el trabajo en equipo y la gestión de las emociones.
+                            
+                            La película es una mezcla de comedia y acción, con momentos de humor y aventura, y está llena de personajes divertidos y situaciones explosivas, fieles al espíritu del videojuego original.</p>
+                </div>
+              </div>
         </div>
-        <div>
+            <div>
             <h3>Proceso</h3>
-            <p>Primero tuvimos que hacer una aventura gráfica respetando un diagrama de flujo para hacer dicha historia y todo esto usando por primera vez "p5.js". </p>
-            <p>Después empezamos armando el juego sobre esa historia para completar con otra forma de programación llamado POO (Programación Orientada a Objetos)</p>
+            <p>Primero tuvimos que hacer una aventura gráfica respetando un diagrama de flujo para hacer dicha historia y todo esto usando por primera vez "p5.js".
+            </p>
+                <div class="row flex-spaces child-borders">
+                    <label class="paper-btn margin" for="modal-2">Diagrama de Flujo
+                    </label>
+                </div>
+                <input class="modal-state" id="modal-2" type="checkbox">
+                <div class="modal">
+                    <label class="modal-bg" for="modal-2"></label>
+                    <div class="modal-body">
+                    <label class="btn-close" for="modal-2">X</label>
+                    <img src="img/diagrama de flujo.jpg" alt="" class="img-fluid">
+                    </div>
+                </div>
+            <p>Después empezamos armando el juego sobre esa historia para completar con otra forma de programación llamado POO (Programación Orientada a Objetos)
+            </p>
+            <div>
+                <div class="row flex-spaces child-borders">
+                    <label class="paper-btn margin" for="modal-1">Juego</label>
+                </div>
+                <input class="modal-state" id="modal-1" type="checkbox">
+                    <div class="modal">
+                        <label class="modal-bg" for="modal-1"></label>
+                        <div class="modal-body">
+                            <iframe src="tpfinalparte2/index.html" frameborder="0" width="645" height="485"></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
         <div>
             <h3>Integrantes</h3>
            <p> Julieta Pratti 83917/3
             Guillermo Franco 91308/0</p>
         </div>
-        <div>
-        <iframe src="tpfinalparte2/index.html" frameborder="0" width="640" height="480"></iframe>
-         </div>
     </div>
 </body>
 </html>

@@ -1,8 +1,6 @@
 class Juego {
   constructor(cantidadDeEnemigos) {
     this.cantidadDeEnemigos = cantidadDeEnemigos;
-    //this.crearEnemigos();
-    //this.crearJugador();
     this.musicaReproducida = false;
     this.estadoFinal = "";
     this.mostrarPantallaFinal = false;
